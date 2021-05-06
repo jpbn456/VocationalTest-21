@@ -1,0 +1,182 @@
+# Software Requirements Specification
+## For <Questionnaire>
+
+Version 0.1
+
+Prepared by <author Oga Luciano, Monetti Rodrigo, Lassalle Evelyn>
+
+<organization>  
+	
+<date created> 
+
+
+
+Tabla de contenidos
+=====================================================
+* Revision History	
+* 1.	Introduction	
+*  	1.1	Purpose	
+*	1.2	Document Conventions	
+*	1.3	Intended Audience and Reading Suggestions	
+*	1.4	Product Scope	
+*	1.5	Reference
+* 2.	Overall Description	
+*	2.1	Product Perspective	
+*	2.2	Product Functions	
+*	2.3	User Classes and Characteristics	
+*	2.4	Operating Environment	
+*	2.5	Design and Implementation Constraints	
+*	2.6	User Documentation	
+*	2.7	Assumptions and Dependencies	
+* 3.	External Interface Requirements	
+*	3.1	User Interfaces	
+*	3.2	Hardware Interfaces	
+*	3.3	Software Interfaces	
+*	3.4	Communications Interfaces	
+* 4.	System Features	
+*	4.1	System Feature 1	
+*	4.2	System Feature 2 (and so on)	
+* 5.	Other Nonfunctional Requirements	
+*	5.1	Performance Requirements	
+*	5.2	Safety Requirements	
+*	5.3	Security Requirements	
+*	5.4	Software Quality Attributes
+*	5.5	Business Rules	
+* 6.	Other Requirements	
+Appendix A: Glossary	
+Appendix B: Analysis Models	
+Appendix C: To Be Determined List	
+
+=====================================================
+
+## Revision History
+
+| Name   | Date    | Reason For Changes  | Version   |
+| -------| ------- | ------------------- | --------- |
+|        |         |                     |           |
+|        |         |                     |           |
+|        |         |                     |           |
+
+
+# 1. Introduction
+Este documento es una especificacion de requerimientos de sofware de un sistema de cuestionario (Test Vocacional). En este documento se definirá el alcance del sistema y una descripcion especifica de los requerimientos.
+
+
+## 1.1 Purpose 
+Facilitar al usuario la comprensión de sus propios intereses, habilidades, aptitudes, áreas de conocimiento, preferencias, entre otros aspectos, con el fin de ayudar en la elección de una carrera de estudio a futuro.
+
+
+## 1.2 Document Conventions
+
+## 1.3 Intended Audience and Reading Suggestions
+
+## 1.4 Product Scope
+El presente documento describe detalladamente la arquitectura y los requerimientos del sistema, el proposito del proyecto es la creacion de un software con la finalidad de ayudar al usuario a la eleccion de una carrera de estudio.
+
+## 1.5 References
+https://github.com/LucianoOga/VocationalTest-21
+-------------------------------------------------------------------------------------------------------------------------
+
+# 2. Overall Description
+## 2.1 Product Perspective
+El software sera diseñado para aquellos usuarios que deseen realizar una carrera universitaria y necesiten una ayuda o referencia con respecto a la elección de la misma.
+
+## 2.2 Product Functions
+El software tendra diferentes tipos de usuarios...
+
+## 2.3 User Classes and Characteristics
+
+## 2.4 Operating Environment
+
+## 2.5 Design and Implementation Constraints
+- Debe utilizar conexión a internet.
+- Debe poseer un email.
+- El sistema se diseñara según el modelo cliente/servidor.
+- Lenguajes y tecnologías en uso: RUBY,SQL,HTML,JAVASCRIPT...
+
+## 2.6 User Documentation
+
+## 2.7 Assumptions and Dependencies
+- No poseer una conexión a internet.
+- No poseer un email.
+- No poseer un dispositivo compatible.
+-------------------------------------------------------------------------------------------------------------------------
+
+# 3. External Interface Requirements
+## 3.1 User Interfaces
+
+## 3.2 Hardware Interfaces
+
+## 3.3 Software Interfaces
+
+## 3.4 Communications Interfaces
+-------------------------------------------------------------------------------------------------------------------------
+
+#4. System Features
+## 4.1 System Feature 1
+
+## 4.1.1	Description and Priority
+
+## 4.1.2	Stimulus/Response Sequences
+
+## 4.1.3	Functional Requirements
+
+* Registrarse: El usuario deberá proporcionar su nombre, apellido, edad, email (Necesario para recibir una copia del test).
+* Generar perfil con contraseña: El usario deberá generar un nombre de perfil con su respectiva contraseña alfanumerica.
+* Clickear opciones: El usuario podrá seleccionar mediante su mouse la opciones que considera de su agrado en las diferentes preguntas.
+* Carga preguntas: El cliente tendra la opción de cargar preguntas adecuadas al ambito vocacional.
+* Descarga resultados: El usuario si lo desea podrá descargar los resultados en cualquier dispositivo en un cierto formato.
+* Visualizacion de los resultados: El usuario podrá visualizar los resultados obtenidos una vez finalizado el test. 
+* Compartir test: El usuario podrá compartir el cuestionario con quien lo desee, mediante facebook, twitter, gmail.
+
+## Users Stories
+
+#1.
+ Como Evelyn quiero completar el test vocacional para que pueda tener una idea de mi carrera a futuro.
+
+#2.
+Como Profesor quiero que el cuestionario les sea util a mis alumnos para que puedan orientarse con respecto a que estudiar en el futuro.
+
+#3.
+Como Rodrigo quiero realizar el cuestionario para que el sistema me indique que poder estudiar en base a mis gustos y conocimientos.
+
+#4.
+Como Psicologo quiero poder descargar los resultados de los cuestionarios de mis pacientes para que asi pueda ayudarlos a resolver ciertos problemas vinculados con su futuro estudantil.
+
+#5.
+Como Luciano quiero invitar a mis compañeros para que participen y puedan sacarse ciertas dudas sobre que poder estudiar.
+
+#6.
+Como Psicopedagoga quiero poder ver las preferencias de mis alumnos para que pueda prepararlos para su futuro.
+
+#7.
+Como Rector quiero ver los resultados de los test para que pueda ir teniendo una idea de las carreras que podrian ser mas concurridas en la universidad.
+------------------------------------------------------------------------------------------------------------------------
+
+#5 Other Nonfunctional Requirements
+##5.1 Performance Requirements
+
+##5.2 Safety Requirements
+
+##5.3 Security Requirements
+- Visibilidad de datos personales.
+- Encriptación de contraseña.
+- Permisos para la lectura de los resultados del test.
+
+##5.4 Software Quality Attributes
+
+##5.5 Business Rules
+-------------------------------------------------------------------------------------------------------------------------
+
+#6 Other Requirements
+- Appendix A: Glossary
+
+- Appendix B: Analysis Models
+
+
+
+
+
+
+
+
