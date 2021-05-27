@@ -25,5 +25,42 @@ class App < Sinatra::Base
     p = Post.where(id: 1).last
     p.description
   end
-end
 
+  post "/careers" do
+    career = Career.new(name: params[:name])
+    
+    if career.save
+       [201, {'Location' => "career/#{career.id}"}, 'CREATED']
+    else
+       [500, {}, 'Internal Server Error']
+    end
+  end
+
+  post "/surveys" do
+    @survey = Survey.new(name: params[:name])
+
+    if @survey.save
+      @questions = Question.all
+      erb :surveys_index
+    else
+      [500, {}, 'Internal Server Error']
+    end
+  end
+
+  get '/surveys' do
+    Survey.all.map{ |survey| survey.name }
+  end
+  
+  get '/careers' do
+    @careers = Career.all
+
+    erb :careers_index
+  end
+
+  post '/responses' do
+    params[:question_id].each do |q_id|
+      r = Response.new(choice_id: params[:"#{q_id}"], survey_id: params[:survey_id], question_id: q_id)
+      r.save
+    end
+  end
+end
