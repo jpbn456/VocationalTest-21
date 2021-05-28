@@ -2,14 +2,15 @@ require './models/init.rb'
 
 class App < Sinatra::Base
   get '/' do
-    "Hello World"
+    erb :landing
   end
 
   get "/hello/:name" do
    @name = params[:name]
    erb :hello_template
   end
-
+  
+  #Creation post
   post "/posts" do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
@@ -21,11 +22,13 @@ class App < Sinatra::Base
     end
   end
 
+  #Get to show posts
   get '/posts' do
     p = Post.where(id: 1).last
     p.description
   end
 
+  #Creation careers
   post "/careers" do
     career = Career.new(name: params[:name])
     
@@ -36,6 +39,7 @@ class App < Sinatra::Base
     end
   end
 
+  #Creation surveys
   post "/surveys" do
     @survey = Survey.new(name: params[:name])
 
@@ -47,20 +51,24 @@ class App < Sinatra::Base
     end
   end
 
+  #Get to shows surveys
   get '/surveys' do
     Survey.all.map{ |survey| survey.name }
   end
   
+  #Get to shows careers
   get '/careers' do
     @careers = Career.all
 
     erb :careers_index
   end
 
+  #Creation response
   post '/responses' do
     params[:question_id].each do |q_id|
       r = Response.new(choice_id: params[:"#{q_id}"], survey_id: params[:survey_id], question_id: q_id)
       r.save
     end
   end
+  
 end
