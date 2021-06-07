@@ -56,6 +56,25 @@ class App < Sinatra::Base
     p.description
   end
 
+  #Creation surveys
+  post '/surveys' do
+    survey = Survey.new(username: params[:name])
+    if survey.save
+      [201, { 'Location' => "surveys/#{survey.id}" }, 'User created sucesfully'] 
+      sleep(1)
+      redirect :Main
+    else
+      [500, {}, 'Internal Server Error']
+    end
+  end
+
+  #Get to shows
+  get "/surveys" do
+    @surveys = Survey.all
+
+    erb :surveys_index 
+  end
+
 
   #Creation response
   post '/responses' do

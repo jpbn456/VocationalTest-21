@@ -9,14 +9,14 @@ class CareerTest < MiniTest::Unit::TestCase
         career = Career.create(name: 'Veterinaria')
         
         #Act
-        Survey.create(name: 'U1', career_id: career.id)
-        Survey.create(name: 'U2', career_id: career.id)
-        Survey.create(name: 'U3', career_id: career.id)
+        Survey.create(username: 'U1', career_id: career.id)
+        Survey.create(username: 'U2', career_id: career.id)
+        Survey.create(username: 'U3', career_id: career.id)
         #Assert
-        assert_equal (career.surveys.count, 3)
+        assert_equal career.surveys.count, 3
 
         def test_career_must_has_name
-        # Arrange
+        #Arrange
         career1 = Career.new
         career2 = Career.new
         career3 = Career.new
@@ -31,5 +31,5 @@ class CareerTest < MiniTest::Unit::TestCase
         assert_equal(career2.valid?, false)
         assert_equal(career3.valid?, false)
       end
-   end
+    end
 end

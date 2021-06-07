@@ -6,8 +6,8 @@ class Response < Sequel::Model
 	
 	def validate
     	  super
-    	  errors.add(:survey_id, :name => 'Can not be nil') if (question_id.nil?) || (not (survey_id))
-    	  errors.add(:question_id, :name => 'Can not be nil') if (choice_id.nil?) || (not (question_id)) 
-    	  errors.add(:choice_id, :name => 'Can not be nil') if (survey_id.nil?) || (not (choice_id)) 
+    	  errors.add(:survey_id => 'Can not be nil') if (question_id.nil?) || (not (survey_id))
+    	  errors.add(:question_id => 'Can not be nil') if (choice_id.nil?) || (not (question_id)) 
+    	  errors.add(:choice_id => 'Can not be nil') if (survey_id.nil?) || (not (choice_id)) 
   end	
 end
