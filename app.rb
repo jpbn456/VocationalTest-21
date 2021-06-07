@@ -2,12 +2,40 @@ require './models/init.rb'
 
 class App < Sinatra::Base
   get '/' do
-    erb :landing
+     erb :landing
   end
 
   get "/hello/:name" do
    @name = params[:name]
    erb :hello_template
+  end
+
+   #Creation careers
+  post "/careers" do
+    career = Career.new(name: params[:name])
+    
+    if career.save
+       [201, {'Location' => "career/#{career.id}"}, 'CREATED']
+    else
+       [500, {}, 'Internal Server Error']
+    end
+  end
+
+  #Get to shows careers
+  get "/careers" do
+    @careers = Career.all
+
+    erb :careers_index
+  end
+
+  get "/careers/:id" do
+    career = Career.where(id: params['id']).last
+    "<h1> Carrera #{career.name}</h1>" +
+    "<ul>" +
+    "<li> id: #{career.id}" +
+    "<li> name: #{career.name}" +
+    "<li> surveys count: #{career.surveys.count}" +
+    "</ul>"
   end
   
   #Creation post
@@ -28,40 +56,6 @@ class App < Sinatra::Base
     p.description
   end
 
-  #Creation careers
-  post "/careers" do
-    career = Career.new(name: params[:name])
-    
-    if career.save
-       [201, {'Location' => "career/#{career.id}"}, 'CREATED']
-    else
-       [500, {}, 'Internal Server Error']
-    end
-  end
-
-  #Creation surveys
-  post "/surveys" do
-    @survey = Survey.new(name: params[:name])
-
-    if @survey.save
-      @questions = Question.all
-      erb :surveys_index
-    else
-      [500, {}, 'Internal Server Error']
-    end
-  end
-
-  #Get to shows surveys
-  get '/surveys' do
-    Survey.all.map{ |survey| survey.name }
-  end
-  
-  #Get to shows careers
-  get '/careers' do
-    @careers = Career.all
-
-    erb :careers_index
-  end
 
   #Creation response
   post '/responses' do
@@ -69,6 +63,31 @@ class App < Sinatra::Base
       r = Response.new(choice_id: params[:"#{q_id}"], survey_id: params[:survey_id], question_id: q_id)
       r.save
     end
+  end
+
+  #Creation question
+  post "/questions" do
+    question = Question.new(params[:question])
+    question.save
+    redirect '/questions'
+  end
+
+  #Get to shows question
+  get "/questions" do
+    @questions = Question.all
+
+    erb :questions_index
+  end
+
+  get "/questions/:id" do
+    question = Question.where(id: params['id']).last
+    "<h1> Preguntas: #{question.name}</h1>" +
+    "<ul>" +
+    "<li> number: #{question.number}" +
+    "<li> name: #{question.name}" +
+    "<li> description: #{question.description}" +
+    "<li> type: #{question.type}" +
+    "</ul>"
   end
   
 end

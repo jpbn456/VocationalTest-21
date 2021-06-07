@@ -1,0 +1,20 @@
+<body background="https://www.aauniv.com/s/blog/wp-content/uploads/2020/04/estudiar-online-en-casa-para-universitarios.jpg">
+
+<h1>LAS CARRERAS SON:</h1>
+
+<form action='/careers' method='POST'>
+
+	<input type='text' name='name' placeholder= 'Nombre de carrera'>
+	<input type='submit' value='Crear'>
+
+</form>
+<ul>
+
+	<% @careers.map do |career| %>
+		<li>
+	<a href="careers/<%=career.id%>"> <%= career.name %></a>
+			(<%= career.surveys.count.to_s %>)
+		</li>
+	<% end %>
+
+</ul> 
