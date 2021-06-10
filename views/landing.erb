@@ -3,11 +3,17 @@
     <h1> ¡HOLA, BIENVENIDO! </h1>
     <body background="https://s1.eestatic.com/2020/12/31/imprescindibles/547706267_168620333_1024x576.jpg">
 
-    <form action='/surveys' method='POST'>
-      <div> <p> A continuación, ingresá tu nombre: </p> 
-      </div>
-      <input type='text' name='name'>
-      <input type='submit' value='Start'>
-    </form>
-  </body>  
+      <form action='/surveys' method='POST'>
+        <div> <p> ingrese sus datos: </p>    </div>
+            <label for="name">Usuario:</label>
+            <input type="text" id="name" name="user_name"/>
+            <label for="num">Contraseña:</label>
+            <input type="text" id="num" name="user_password"/> 
+            <label for="mail">Correo electrónico:</label>
+            <input type="email" id="mail" name="user_email" />
+          <input type="button" value="Buscar" onclick="usrpas()">
+      </form>
+    </body>  
+
 </html>
+
