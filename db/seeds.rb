@@ -162,9 +162,9 @@ Outcome.create(choice: choice5_question14, career: economía)
 
 #Question 15
 Outcome.create(choice: choice1_question15, career: física)
-Outcome.create(choice: choice1_question15, career: quimica)
+Outcome.create(choice: choice1_question15, career: química)
 Outcome.create(choice: choice1_question15, career: computación)
-Outcome.create(choice: choice2_question15, career: economía
+Outcome.create(choice: choice2_question15, career: economía)
 Outcome.create(choice: choice3_question15, career: educaciónFísica)
 Outcome.create(choice: choice4_question15, career: medicina)
 Outcome.create(choice: choice5_question15, career: periodismo)
