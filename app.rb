@@ -28,6 +28,7 @@ class App < Sinatra::Base
     erb :careers_index
   end
 
+  #Get to shows information careers
   get "/careers/:id" do
     career = Career.where(id: params['id']).last
     "<h1> Carrera #{career.name}</h1>" +
@@ -98,6 +99,7 @@ class App < Sinatra::Base
     erb :questions_index
   end
 
+  #Get to shows information questions
   get "/questions/:id" do
     question = Question.where(id: params['id']).last
     "<h1> Preguntas: #{question.name}</h1>" +
