@@ -1,0 +1,46 @@
+<html>
+    <style>
+        img{
+        width: 100%;
+        }
+        body {
+            background: url(https://legaintegra.es/wp-content/uploads/2019/07/como-estudiar.jpg)  ; 
+            background-size: cover;
+            background-repeat: repeat;
+            margin: 0;
+            height: 100vh;
+        }
+    </style>
+        <h1>---PREGUNTAS---</h1>
+            <div> <p> Si usted desea cargar una pregunta lo podrá hacer a continuación: </p>    </div>
+            <form action='/questions' method='POST'>
+                <li><input type='text' name='question[name]' placeholder= 'Pregunta'>
+                <li><input type='text' name='question[description]' placeholder= 'Descripcion'>
+                <li><input type='number' name='question[number]' placeholder= 'Nro de pregunta' min="1">
+                <li><input type='text' name='question[type]' placeholder= 'Tipo'>   
+                <li><input type='submit' value='Crear'>
+            </form>
+        <div> <p> LAS PREGUNTAS SON LAS SIGUIENTES: </p> </div>
+        <ul>
+        <% @questions.map do |question| %>
+        <li>
+            <a href="questions/<%=question.id%>"> <%= question.name %></a>
+        </li>
+        <% end %>
+        </ul>
+            <div class="col-md-12">
+                <% @questions.each do |question| %>
+                <p ><%= question.number %>. <%= question.description %></p>
+                <% question.choices.each do |choice| %>
+                <div class="col-md-12">
+                    <label class="radio">                       
+                        <input type="radio" name="<%= question.id  %>" id="<%= choice.id  %>" /> <%= choice.text %> 
+                    </label>
+                </div>
+              <% end %>
+            <% end %>
+            </div>
+        <input type='submit' value='Enviar respuestas'>
+</html>
+
+

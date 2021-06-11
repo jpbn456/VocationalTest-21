@@ -1,19 +1,28 @@
 <html>
   <body>
-    <h1> ¡HOLA, BIENVENIDO! </h1>
-    <body background="https://s1.eestatic.com/2020/12/31/imprescindibles/547706267_168620333_1024x576.jpg">
-
+    <style>
+    img{
+      width: 100%;
+    }
+    body {
+      background: url(https://www.gub.uy/ministerio-educacion-cultura/sites/ministerio-educacion-cultura/files/imagenes/noticias/Dise%C3%B1o%20sin%20t%C3%ADtulo_4.png)  ; 
+      background-size: cover;
+      background-repeat: no-repeat;
+      margin: 0;
+      height: 100vh;
+    }
+    </style>
+    <h1>-----------------------------¡HOLA, BIENVENIDO A TESTVOCACIONAL-21!-----------------------</h1>
+    <div> <p>La realización de un test vocacional pretende ayudar a la persona a conocer su orientación profesional y saber de primera mano cuáles son los trabajos en los que podría destacar. </p> </div>
       <form action='/surveys' method='POST'>
-        <div> <p> ingrese sus datos: </p>    </div>
+        <div> <p> Ingrese sus datos: </p> </div>
             <label for="name">Usuario:</label>
             <input type="text" id="name" name="user_name"/>
             <label for="num">Contraseña:</label>
             <input type="text" id="num" name="user_password"/> 
             <label for="mail">Correo electrónico:</label>
             <input type="email" id="mail" name="user_email" />
-          <input type='submit' value='Start'>
+            <input type='submit' value='Start'>
       </form>
     </body>  
-
 </html>
-
