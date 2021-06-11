@@ -18,5 +18,9 @@ class ChoiceTest < MiniTest::Unit::TestCase
     assert_equal(choice2.valid?, false)
 
   end
+<<<<<<< HEAD
 
 end
+=======
+end
+>>>>>>> 5c1cce505bda316bf35d8786b6f1ccd73181d18b
