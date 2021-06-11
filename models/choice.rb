@@ -4,9 +4,6 @@ class Choice < Sequel::Model
     many_to_one :question
     one_to_one  :response
 
-    #def validate
-	#	super errors.add(:text, 'text can not be nil or empty') if !text || text.empty?
-	#end   
 	plugin :validation_helpers 
 	def validate
 		super 

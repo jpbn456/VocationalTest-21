@@ -14,8 +14,8 @@ class CareerTest < MiniTest::Unit::TestCase
         Survey.create(username: 'U3', career_id: career.id)
         #Assert
         assert_equal career.surveys.count, 3
-
-        def test_career_must_has_name
+    end
+    def test_career_must_has_name
         #Arrange
         career1 = Career.new
         career2 = Career.new
@@ -30,6 +30,5 @@ class CareerTest < MiniTest::Unit::TestCase
         assert_equal(career1.valid?, true)
         assert_equal(career2.valid?, false)
         assert_equal(career3.valid?, false)
-      end
     end
 end
