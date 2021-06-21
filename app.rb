@@ -98,8 +98,18 @@ class App < Sinatra::Base
       response = Response.new(question_id: question, survey_id: @survey.id, choice_id: params[question])
       response.save
     end
+    
+  #Falta solucionar.. respuestas NO
 	#@var = params["1"]
-	pointsCareers = {}
+
+  @cont =0
+  params.each do |question|
+   
+
+
+  end
+
+  pointsCareers = {}
     Career.all.each do |career| 
         pointsCareers[career.id] = 0
     end
@@ -113,9 +123,10 @@ class App < Sinatra::Base
     end
        
 	careerId = pointsCareers.key(pointsCareers.values().max())
-    @career = Career.find(id: careerId).name 
+    @career = Career.find(id: careerId).name
     @user = @survey.username
-    #@survey.update(career_id: @career.id) #Actualiza 
+    @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
     erb :end_index
    end
 end
+
