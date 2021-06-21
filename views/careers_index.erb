@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  </form>
+    </form>
       <p> LAS CARRERAS SON LAS SIGUIENTES: </p>
       <ul>
 	         <% @careers.map do |career| %>
-	           <li>
+	            <li>
 	               <a href="careers/<%=career.id%>"> <%= career.name %> (<%= career.surveys.count.to_s %>)</a>
-            </li>
+              </li>
 	         <% end %>
       </ul> 
       <p id = "aviso">
