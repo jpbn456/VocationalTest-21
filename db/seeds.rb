@@ -3,8 +3,8 @@ Career.all.map { |ca| ca.destroy }
 Question.all.map { |qu| qu.destroy }
 Choice.all.map { |ch| ch.destroy }
 Outcome.all.map { |ou| ou.destroy }
-#Response.all.map { |re| re.destroy }
-#Survey.all.map { |su| su.destroy }
+Response.all.map { |re| re.destroy }
+Survey.all.map { |su| su.destroy }
 
 
 #Create careers

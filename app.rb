@@ -24,21 +24,16 @@ class App < Sinatra::Base
   #Get to shows careers
   get "/careers" do
     @careers = Career.all
-
-    erb :careers_index
+	erb :careers_index
   end
 
   #Get to shows information careers
   get "/careers/:id" do
-    career = Career.where(id: params['id']).last
-    "<h1> Carrera #{career.name}</h1>" +
-    "<ul>" +
-    "<li> id: #{career.id}" +
-    "<li> name: #{career.name}" +
-    "<li> surveys count: #{career.surveys.count}" +
-    "</ul>"
+    @career = Career.find(id: params[:id])
+    @career_id = @career.id
+    erb :info_careers
   end
-  
+
   #Creation post
   post "/posts" do
     request.body.rewind  # in case someone already read it
@@ -57,13 +52,33 @@ class App < Sinatra::Base
     p.description
   end
 
+  #Creation inicio
+  post '/inicio' do
+    erb :surveys_index
+  end
+
+  #Creation info_careers
+  post '/info_careers' do
+    redirect :careers
+  end
+
+  #Creation init
+  post '/init' do
+    redirect :/
+  end
+
+  #Creation info_surveys
+  post '/info_surveys' do
+  	redirect :surveys
+  end
+
   #Creation surveys
   post '/surveys' do
-    survey = Survey.new(username: params[:name])
-    if survey.save
-      [201, { 'Location' => "surveys/#{survey.id}" }, 'User created sucesfully'] 
-      sleep(1)
-      redirect :Main
+    @survey = Survey.new(username: params[:username])
+    if @survey.save
+      [201, { 'Location' => "surveys/#{@survey.id}" }, 'User created sucesfully'] 
+      @questions = Question.all
+      erb :questions_index
     else
       [500, {}, 'Internal Server Error']
     end
@@ -72,43 +87,35 @@ class App < Sinatra::Base
   #Get to shows
   get "/surveys" do
     @surveys = Survey.all
-
-    erb :surveys_index 
+	erb :info_surveys
   end
-
 
   #Creation response
   post '/responses' do
-    params[:question_id].each do |q_id|
-      r = Response.new(choice_id: params[:"#{q_id}"], survey_id: params[:survey_id], question_id: q_id)
-      r.save
+    @survey = Survey.find(id: params[:survey_id])
+
+    params[:question_id].each do |question|
+      response = Response.new(question_id: question, survey_id: @survey.id, choice_id: params[question])
+      response.save
     end
-  end
+	#@var = params["1"]
+	pointsCareers = {}
+    Career.all.each do |career| 
+        pointsCareers[career.id] = 0
+    end
 
-  #Creation question
-  post "/questions" do
-    question = Question.new(params[:question])
-    question.save
-    redirect '/questions'
-  end
-
-  #Get to shows question
-  get "/questions" do
-    @questions = Question.all
-
-    erb :questions_index
-  end
-
-  #Get to shows information questions
-  get "/questions/:id" do
-    question = Question.where(id: params['id']).last
-    "<h1> Preguntas: #{question.name}</h1>" +
-    "<ul>" +
-    "<li> number: #{question.number}" +
-    "<li> name: #{question.name}" +
-    "<li> description: #{question.description}" +
-    "<li> type: #{question.type}" +
-    "</ul>"
-  end
-  
+	@survey.responses.each do |response|
+        Outcome.all.each do |outcome|
+        	if (response.choice_id == outcome.choice_id)
+            	pointsCareers[outcome.career_id] += 1
+          	end
+        end
+    end
+       
+	careerId = pointsCareers.key(pointsCareers.values().max())
+    @career = Career.find(id: careerId).name 
+    @user = @survey.username
+    #@survey.update(career_id: @career.id) #Actualiza 
+    erb :end_index
+   end
 end

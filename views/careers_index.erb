@@ -1,30 +1,19 @@
+<!DOCTYPE html>
 <html>
-  <style>
-    img{
-      width: 100%;
-    }
-    body {
-      background: url(https://www.crushpixel.com/big-static14/preview4/man-college-student-studying-learning-1749365.jpg); 
-      background-size: cover;
-      background-repeat: no-repeat;
-      margin: 0;
-      height: 100vh;
-    }
-  </style>
-
-  <h1>---CARRERAS---</h1>
-  <div> <p> Si usted desea cargar una carrera lo podrá hacer a continuación: </p> </div>
-  <form action='/careers' method='POST'>
-    <input type='text' name='name' placeholder= 'Nombre de carrera'>
-	  <input type='submit' value='Crear'>
   </form>
-  <div> <p> LAS CARRERAS SON LAS SIGUIENTES: </p> </div>
-  <ul>
-	 <% @careers.map do |career| %>
-	   <li>
-	       <a href="careers/<%=career.id%>"> <%= career.name %></a>
-			   (<%= career.surveys.count.to_s %>)
-		</li>
-	<% end %>
-  </ul> 
+      <p> LAS CARRERAS SON LAS SIGUIENTES: </p>
+      <ul>
+	         <% @careers.map do |career| %>
+	           <li>
+	               <a href="careers/<%=career.id%>"> <%= career.name %> (<%= career.surveys.count.to_s %>)</a>
+            </li>
+	         <% end %>
+      </ul> 
+      <p id = "aviso">
+    	   <b> -.El numero dentro de ( ) es la cantidad de usuarios que tuvieron como resultado esa carrera.-</b>
+      </p>
+      <form action='/init' method='POST'>
+  		</br>
+    	   <input type='submit' value='Volver atrás'>
+      </form>
 </html>
