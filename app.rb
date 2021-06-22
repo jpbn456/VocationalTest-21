@@ -92,41 +92,35 @@ class App < Sinatra::Base
 
   #Creation response
   post '/responses' do
+    arrayNegativas = ["2","4","6","8","10","18","20","22","24","28","34","40"]
     @survey = Survey.find(id: params[:survey_id])
-
     params[:question_id].each do |question|
       response = Response.new(question_id: question, survey_id: @survey.id, choice_id: params[question])
-      response.save
+      response.save 
+      arrayNegativas.delete params[question]
     end
-    
-  #Falta solucionar.. respuestas NO
-	#@var = params["1"]
 
-  @cont =0
-  params.each do |question|
-   
-
+    if arrayNegativas.empty?
+      erb :end_fail_index  
+    else
+      pointsCareers = {}
+      Career.all.each do |career| 
+        pointsCareers[career.id] = 0
+      end
+      @survey.responses.each do |response|
+        Outcome.all.each do |outcome|
+          if (response.choice_id == outcome.choice_id)
+            pointsCareers[outcome.career_id] += 1
+          end
+        end
+      end
+      careerId = pointsCareers.key(pointsCareers.values().max())
+      @career = Career.find(id: careerId).name
+      @user = @survey.username
+      @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
+      erb :end_index
+    end   
 
   end
-
-  pointsCareers = {}
-    Career.all.each do |career| 
-        pointsCareers[career.id] = 0
-    end
-
-	@survey.responses.each do |response|
-        Outcome.all.each do |outcome|
-        	if (response.choice_id == outcome.choice_id)
-            	pointsCareers[outcome.career_id] += 1
-          	end
-        end
-    end
-       
-	careerId = pointsCareers.key(pointsCareers.values().max())
-    @career = Career.find(id: careerId).name
-    @user = @survey.username
-    @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
-    erb :end_index
-   end
 end
 
