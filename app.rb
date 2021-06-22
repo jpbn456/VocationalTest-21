@@ -99,7 +99,7 @@ class App < Sinatra::Base
       response.save 
       arrayNegativas.delete params[question]
     end
-
+    @user = @survey.username
     if arrayNegativas.empty?
       erb :end_fail_index  
     else
@@ -116,7 +116,6 @@ class App < Sinatra::Base
       end
       careerId = pointsCareers.key(pointsCareers.values().max())
       @career = Career.find(id: careerId).name
-      @user = @survey.username
       @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
       erb :end_index
     end   
