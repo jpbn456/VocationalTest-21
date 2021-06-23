@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html>
-    <h1>-------------------------------------VOCATIONALTEST-21----------------------------------------</h1>
+
+    <head>
+        <link rel='stylesheet' href='/styles.css' type='text/css'/>
+    </head>
+
+    <body class='background2'>
+
+    <h1>VOCATIONALTEST-21</h1>
         <form action='/responses' method='POST'>
             <input type='hidden' name='survey_id' value='<%=@survey.id%>'>
-            <ul>
-                <%@questions.each do |question|%>
-                    <li><%=question.description %></li>
-                    <td>
-                        <%question.choices.each do |choice|%>
-                            <input type='radio' name='<%=question.id%>' value='<%=choice.id%>' required> <%=choice.text%> 
-                            <br/>
-                        <%end%>
-                        <input type='hidden' name='question_id[]' value='<%=question.id%>'>
-                    </td>   
-                <%end%>
-            </ul>
-            <p id = "aviso">
-                    <b> -.Por favor,te recomendamos que revises bien las respuestas antes de enviarlas.-</b>
-            </p>
-            <input type='submit' value = 'Enviar'>
-        </form>
+            
+                <ul>
+                    <%@questions.each do |question|%>
+                        <div class='questions'>
+                            <li><%=question.description %></li>
+                        </div>
+                        
+                        <div class='choices'>
+                        <td>
+                            <%question.choices.each do |choice|%>
+                                <input type='radio' name='<%=question.id%>' value='<%=choice.id%>' required> <%=choice.text%> 
+                                <br/>
+                            <%end%>
+                            <input type='hidden' name='question_id[]' value='<%=question.id%>'>
+                        </td>
+                        </div>
+                        
+                    <%end%>
+                </ul>
+                
+                <div class='warning'>
+                        <b> -.Por favor,te recomendamos que revises bien las respuestas antes de enviarlas.-</b>
+                    <br/>
+                        <input type='submit' value = 'Enviar'>
+                    </form>
+                </div>
+
+    </body>
+
 </html>

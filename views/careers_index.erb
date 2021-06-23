@@ -1,19 +1,34 @@
 <!DOCTYPE html>
 <html>
-    </form>
-      <p> LAS CARRERAS SON LAS SIGUIENTES: </p>
-      <ul>
-	         <% @careers.map do |career| %>
-	            <li>
-	               <a href="careers/<%=career.id%>"> <%= career.name %> (<%= career.surveys.count.to_s %>)</a>
-              </li>
-	         <% end %>
-      </ul> 
-      <p id = "aviso">
+  
+  <head>
+    <link rel='stylesheet' href='/styles.css' type='text/css'/>
+  </head>
+
+  <body class='background2'>
+
+      <h1> LAS CARRERAS SON LAS SIGUIENTES: </h1>
+        <div>
+          <ul>
+            <div class='list-careers'>
+	            <% @careers.map do |career| %>
+	              <li>
+	                <a href="careers/<%=career.id%>"> <%= career.name %> (<%= career.surveys.count.to_s %>)</a>
+                </li>
+	            <% end %>
+            </div>
+          </ul>
+        </div>
+
+      <div class='warning'>
+        </br>
     	   <b> -.El numero dentro de ( ) es la cantidad de usuarios que tuvieron como resultado esa carrera.-</b>
-      </p>
+      
       <form action='/init' method='POST'>
   		</br>
     	   <input type='submit' value='Volver atrás'>
       </form>
+      </div>
+    
+    </body>
 </html>

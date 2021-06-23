@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html>
-     <h1>------------------------------------------------TESTVOCACIONAL-21-----------------------------------</h1>
-        <td>
-            <label>¡¡UNA LASTIMA <%=@user%> !! NO NOS PROPORCIONASTE DEMASIADA INFORMACION :(</label>
-        </td>
+
+    <head>
+        <link rel='stylesheet' href='/styles.css' type='text/css'/>
+    </head>
+
+    <body class='background3'>
+
+      <h1>TESTVOCACIONAL-21</h1>
+        <h2> ¡¡UNA LASTIMA <%=@user%> !! NO NOS PROPORCIONASTE DEMASIADA INFORMACION :(</h2>
         
-   		<form action='/inicio' method='POST'>
-   			<br/>
-    		<input type='submit' value='Realizar otro test'>
-      </form>
-		  <form action='/init' method='POST'>
-  			</br>
-    		<input type='submit' value='Inicio'>
-   		</form>
+   		  <div class='btn'>
+          <form action='/inicio' method='POST'>
+            <br/>
+            <input type='submit' value='Realizar otro test'>
+          </form>
+        </div>
+
+        <div class='btn'>
+          <form action='/init' method='POST'>
+          </br>
+            <input type='submit' value='Inicio'>
+          </form>
+        </div>
+
+    </body>
+
 </html>

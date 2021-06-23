@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
-        <p>CANTIDAD DE USUARIOS TOTALES HASTA EL MOMENTO: <%=@surveys.count %></p>
-        <ul>
-            <% @surveys.map do |survey| %>
-                <li> <%=survey.username%> </li>
-            </br>
-            <% end %>
-        </ul> 
+    <head>
+        <link rel='stylesheet' href='/styles.css' type='text/css'/>
+    </head>
+
+    <body class='background2'>
+        <h1>CANTIDAD DE USUARIOS TOTALES HASTA EL MOMENTO: <%=@surveys.count %></h1>
+            
+            <div>
+                <ul>
+                    <div class='list-users'>
+                        <% @surveys.map do |survey| %>
+                            <li> <%=survey.username%> </li>
+                            </br>
+                        <% end %>
+                    </div>
+                </ul> 
+            </div>
+
         <form action='/init' method='POST'>
         </br>
             <input type='submit' value='Volver atrás'>
         </form>
+        
+    </body>
 </html>
