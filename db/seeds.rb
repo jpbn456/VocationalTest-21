@@ -150,7 +150,7 @@ Outcome.create(choice: choice1_question12, career: arquitectura)
 Outcome.create(choice: choice1_question13, career: sociología)
 Outcome.create(choice: choice2_question13, career: historia)
 Outcome.create(choice: choice3_question13, career: computación)
-Outcome.create(choice: choice4_question13, career: geología)
+Outcome.create(choice: choice3_question13, career: geología)
 
 #Question 14
 Outcome.create(choice: choice1_question14, career: educaciónFísica)
