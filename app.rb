@@ -92,7 +92,7 @@ class App < Sinatra::Base
 
   #Creation response
   post '/responses' do
-    arrayNegativas = ["2","4","6","8","10","18","20","22","24","28","34","40"]
+    arrayNegativas = ["2","4","6","8","10","12","14","16","18","20","22","24","28","34","40"]
     @survey = Survey.find(id: params[:survey_id])
     params[:question_id].each do |question|
       response = Response.new(question_id: question, survey_id: @survey.id, choice_id: params[question])
