@@ -1,0 +1,283 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{ 
+    background-color:#2E5773;
+    color: white;
+    font-family:'cabin' sans-serif;
+}
+
+/* LANDING */
+
+.landing{
+    background: url(./img/background.jpg) no-repeat center;
+    background-size: 800px 500px;
+    padding-bottom: 200px;
+}
+
+h1{
+    text-align: center;
+    font-size: 60px;
+    padding: 10px 0 10px 0;*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{ 
+    background-color:#2E5773;
+    color: white;
+    font-family:'cabin' sans-serif;
+}
+
+/* LANDING */
+.landing{
+    
+    background: url(./img/background.jpg) no-repeat center;
+    background-size: 700px 700px;
+    padding-bottom: 200px;
+}
+
+h1{
+    text-align: center;
+    padding: 10px 0 10px 0;
+    font-size: 60px;
+}
+h2{
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 20px 50px 20px;
+}
+
+.btn{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+/* BOTOMS */
+
+input[type='text']{
+    position: relative;
+    border-radius: 20px 20px 20px 20px;
+    width: auto;
+    height: 40px;
+    cursor: pointer;
+    background:white;
+    border-color: white;
+    color: black;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+}
+
+input[type='submit']{
+    position: relative;
+    border-radius: 20px 20px 20px 20px;
+    width: auto;
+    cursor: pointer;
+    background:#008CC4;
+    border-color: white;
+    color: white;
+    padding: 15px 15px 15px 15px;
+    font-size: 20px;
+}
+
+input[type='submit']:hover{
+    background:#005C81;  
+}
+
+}
+h2{
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 20px 50px 20px;
+}
+
+.btn{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* BOTOMS */
+
+input[type='text']{
+    position: relative;
+    border-radius: 20px 20px 20px 20px;
+    width: auto;
+    height: 40px;
+    cursor: pointer;
+    background:white;
+    border-color: white;
+    color: black;
+    padding: 10px 10px 10px 10px;
+    font-size: 20px;
+}
+
+input[type='submit']{
+    position: relative;
+    border-radius: 20px 20px 20px 20px;
+    width: auto;
+    cursor: pointer;
+    background:#008CC4;
+    border-color: white;
+    color: white;
+    padding: 15px 15px 15px 15px;
+    font-size: 20px;
+}
+
+input[type='submit']:hover{
+    background:#005C81;  
+}
+
+/* SURVEY_INDEX */
+
+.background2{
+    background: url(./img/background2.jpg) no-repeat center;
+    background-size: 1550px 1200px;
+    background-attachment: fixed;
+}
+
+.background2 h1{
+    color: black;
+}
+
+.imput-user{
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}
+
+.imput-user p{
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 20px;
+}
+
+.back{
+    text-align: center;
+    padding-top: 50px;
+}
+
+/* QUESTIONS */
+
+.questions{
+    text-align: center;
+    font-size: 22px;
+    color: white; 
+    background:#005C81;
+    margin: auto;
+    list-style: none;  
+    border: 1px solid black;
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding: 10px 10px 10px 10px;
+    border-radius: 20px 20px 0 0;
+}
+
+.choices{
+    text-align: left;
+    font-size: 20px;
+    color: black;
+    background: white;
+    border: 1px solid black;
+    width: 50%;
+    padding: 15px 10px 15px 30px;
+    margin: auto;
+    margin-bottom: 40px;
+    border-radius: 0 0 20px 20px;
+}
+
+.warning{
+    text-align: center;
+    font-size: 25px;
+    color: black;
+    padding-bottom: 20px;
+}
+
+/* CAREERS */
+
+.list-careers li{
+    text-align: center;
+    list-style: none;
+}
+
+.list-careers a{
+    font-size: 22px;
+    color: black;
+    border: white;
+}
+
+/* INFO CAREERS */
+
+.info-careers{
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.info-careers p{
+    font-size: 20px;
+    color: black;
+    background: white;
+}
+
+.info-careers a{
+    font-size: 20px;
+    color: black;
+}
+
+/* LIST USERS */
+
+.list-users{
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 25px;
+    margin: 10px 20% 0 20%;
+
+}
+
+.list-users li{
+    text-align: center;
+    list-style: none;
+    font-size: 24px;
+    color: black;
+    border-radius: 20px 20px 20px 20px;
+    background: white;
+}
+
+/* END */
+
+.background2 h2{
+    color: black;
+}
+
+.result-img{
+    text-align: center;
+}
+
+.result-img img{
+    width: 550px;
+    height: 300px;
+    border: 5px solid black;
+}
+
+/* END FAIL*/
+
+.background3{
+    background: url(./img/background3.jpg) no-repeat center;
+    background-size: 1920px 1080px;
+}
+
+.background3 h1{
+    color: black;
+}
+
+.background3 h2{
+    color: black;
+    font-size: 20px;
+}
