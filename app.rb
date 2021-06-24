@@ -114,10 +114,14 @@ class App < Sinatra::Base
           end
         end
       end
+
       careerId = pointsCareers.key(pointsCareers.values().max())
       @career = Career.find(id: careerId).name
       @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
+      @survey.responses.map {|c|c.destroy } #se elimina todas las respuestas que el usuario envio..
       erb :end_index
+      
+
     end   
 
   end
