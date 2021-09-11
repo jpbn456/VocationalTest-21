@@ -3,6 +3,7 @@ Sequel.migration do
       create_table(:choices) do
         primary_key   :id
         String        :text
+        Boolean       :relevant
         DateTime      :created_at,   default: Sequel::CURRENT_TIMESTAMP
         DateTime      :updated_at,   default: Sequel::CURRENT_TIMESTAMP
       end

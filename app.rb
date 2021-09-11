@@ -1,5 +1,6 @@
 require './models/init.rb'
 
+
 class App < Sinatra::Base
   get '/' do
      erb :landing

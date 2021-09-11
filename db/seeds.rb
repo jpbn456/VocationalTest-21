@@ -44,60 +44,60 @@ question14 = Question.create(name: 'Pregunta 14', description: 'Integraría un e
 question15 = Question.create(name: 'Pregunta 15', description: 'Sería importante destacarme como:', number: 15, type: 'Personal')
 
 #Create choices
-choice1_question1 = Choice.create(text: '1. Si', question: question1)
-choice2_question1 = Choice.create(text: '2. No', question: question1)
+choice1_question1 = Choice.create(text: '1. Si', question: question1, relevant:true)
+choice2_question1 = Choice.create(text: '2. No', question: question1, relevant:false)
 
-choice1_question2 = Choice.create(text: '1. Si', question: question2)
-choice2_question2 = Choice.create(text: '2. No', question: question2)
+choice1_question2 = Choice.create(text: '1. Si', question: question2, relevant:true) 
+choice2_question2 = Choice.create(text: '2. No', question: question2, relevant:false)
 
-choice1_question3 = Choice.create(text: '1. Si', question: question3)
-choice2_question3 = Choice.create(text: '2. No', question: question3)
+choice1_question3 = Choice.create(text: '1. Si', question: question3, relevant:true)
+choice2_question3 = Choice.create(text: '2. No', question: question3, relevant:false)
 
-choice1_question4 = Choice.create(text: '1. Si', question: question4)
-choice2_question4 = Choice.create(text: '2. No', question: question4)
+choice1_question4 = Choice.create(text: '1. Si', question: question4, relevant:true)
+choice2_question4 = Choice.create(text: '2. No', question: question4, relevant:false)
 
-choice1_question5 = Choice.create(text: '1. Si', question: question5)
-choice2_question5 = Choice.create(text: '2. No', question: question5)
+choice1_question5 = Choice.create(text: '1. Si', question: question5, relevant:true)
+choice2_question5 = Choice.create(text: '2. No', question: question5, relevant:false)
 
-choice1_question6 = Choice.create(text: '1. Si', question: question6)
-choice2_question6 = Choice.create(text: '2. No', question: question6)
+choice1_question6 = Choice.create(text: '1. Si', question: question6, relevant:true)
+choice2_question6 = Choice.create(text: '2. No', question: question6, relevant:false)
 
-choice1_question7 = Choice.create(text: '1. Si', question: question7)
-choice2_question7 = Choice.create(text: '2. No', question: question7)
+choice1_question7 = Choice.create(text: '1. Si', question: question7, relevant:true)
+choice2_question7 = Choice.create(text: '2. No', question: question7, relevant:false)
 
-choice1_question8 = Choice.create(text: '1. Si', question: question8)
-choice2_question8 = Choice.create(text: '2. No', question: question8)
+choice1_question8 = Choice.create(text: '1. Si', question: question8, relevant:true)
+choice2_question8 = Choice.create(text: '2. No', question: question8, relevant:false)
 
-choice1_question9 = Choice.create(text: '1. Si', question: question9)
-choice2_question9 = Choice.create(text: '2. No', question: question9)
+choice1_question9 = Choice.create(text: '1. Si', question: question9, relevant:true)
+choice2_question9 = Choice.create(text: '2. No', question: question9, relevant:false)
 
-choice1_question10 = Choice.create(text: '1. Si', question: question10)
-choice2_question10 = Choice.create(text: '2. No', question: question10)
+choice1_question10 = Choice.create(text: '1. Si', question: question10, relevant:true)
+choice2_question10 = Choice.create(text: '2. No', question: question10, relevant:false)
 
-choice1_question11 = Choice.create(text: '1. Si', question: question11)
-choice2_question11 = Choice.create(text: '2. No', question: question11)
+choice1_question11 = Choice.create(text: '1. Si', question: question11, relevant:true)
+choice2_question11 = Choice.create(text: '2. No', question: question11, relevant:false)
 
-choice1_question12 = Choice.create(text: '1. Si', question: question12)
-choice2_question12 = Choice.create(text: '2. No', question: question12)
+choice1_question12 = Choice.create(text: '1. Si', question: question12, relevant:true)
+choice2_question12 = Choice.create(text: '2. No', question: question12, relevant:false)
 
-choice1_question13 = Choice.create(text: '1. La importancia de la expresión artística en el desarrollo de la identidad de los pueblos.', question: question13)
-choice2_question13 = Choice.create(text: '2. La arquelogía urbana como forma de aprender acerca de la historia cultural de una ciudad.', question: question13)
-choice3_question13 = Choice.create(text: '3. La tecnología satelital en un proyecto para descubrir actividad volcánica para prevenir catástrofes climáticas.', question: question13)
-choice4_question13 = Choice.create(text: '4. Ninguna de las opciones.', question: question13)
+choice1_question13 = Choice.create(text: '1. La importancia de la expresión artística en el desarrollo de la identidad de los pueblos.', question: question13, relevant:true)
+choice2_question13 = Choice.create(text: '2. La arquelogía urbana como forma de aprender acerca de la historia cultural de una ciudad.', question: question13, relevant:true)
+choice3_question13 = Choice.create(text: '3. La tecnología satelital en un proyecto para descubrir actividad volcánica para prevenir catástrofes climáticas.', question: question13, relevant:true)
+choice4_question13 = Choice.create(text: '4. Ninguna de las opciones.', question: question13, relevant:false)
 
-choice1_question14 = Choice.create(text: '1. La práctica de deportes y su influencia positiva en el estado de ánimo de las personas.', question: question14)
-choice2_question14 = Choice.create(text: '2. Los pensadores del siglo XX y su aporte a la gestión de las organizaciones.', question: question14)
-choice3_question14 = Choice.create(text: '3. Las mascotas y su incidencia en la calidad de vida de las personas no videntes.', question: question14)
-choice4_question14 = Choice.create(text: '4. El uso de la PC como herramienta para el control de los procesos industriales.', question: question14)
-choice5_question14 = Choice.create(text: '5. Procesos productivos de una empresa', question: question14)
-choice6_question14 = Choice.create(text: '6. Ninguna de las opciones.', question: question14)
+choice1_question14 = Choice.create(text: '1. La práctica de deportes y su influencia positiva en el estado de ánimo de las personas.', question: question14, relevant:true)
+choice2_question14 = Choice.create(text: '2. Los pensadores del siglo XX y su aporte a la gestión de las organizaciones.', question: question14, relevant:true)
+choice3_question14 = Choice.create(text: '3. Las mascotas y su incidencia en la calidad de vida de las personas no videntes.', question: question14, relevant:true)
+choice4_question14 = Choice.create(text: '4. El uso de la PC como herramienta para el control de los procesos industriales.', question: question14, relevant:true)
+choice5_question14 = Choice.create(text: '5. Procesos productivos de una empresa', question: question14, relevant:true)
+choice6_question14 = Choice.create(text: '6. Ninguna de las opciones.', question: question14, relevant:false)
 
-choice1_question15 = Choice.create(text: '1. Director de una investigación técnico científica', question: question15)
-choice2_question15 = Choice.create(text: '2. Gerente general de una empresa reconocida por su responsabilidad social.', question: question15)
-choice3_question15 = Choice.create(text: '3. Un deportista famoso por su destreza física y su ética profesional.', question: question15)
-choice4_question15 = Choice.create(text: '4. Experto en la detección precoz de enfermedades neurológicas en niños.', question: question15)
-choice5_question15 = Choice.create(text: '5. Un agente de prensa audaz, número uno en el ranking de notas a celebridades.', question: question15)
-choice6_question15 = Choice.create(text: '6. Ninguna de las opciones.', question: question15)
+choice1_question15 = Choice.create(text: '1. Director de una investigación técnico científica', question: question15, relevant:true)
+choice2_question15 = Choice.create(text: '2. Gerente general de una empresa reconocida por su responsabilidad social.', question: question15, relevant:true)
+choice3_question15 = Choice.create(text: '3. Un deportista famoso por su destreza física y su ética profesional.', question: question15, relevant:true)
+choice4_question15 = Choice.create(text: '4. Experto en la detección precoz de enfermedades neurológicas en niños.', question: question15, relevant:true)
+choice5_question15 = Choice.create(text: '5. Un agente de prensa audaz, número uno en el ranking de notas a celebridades.', question: question15, relevant:true)
+choice6_question15 = Choice.create(text: '6. Ninguna de las opciones.', question: question15, relevant:false)
 
 
 #Create outcomes
