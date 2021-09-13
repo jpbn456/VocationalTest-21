@@ -3,7 +3,7 @@
 
 Version 0.1
 
-Prepared by <author Oga Luciano, Monetti Rodrigo, Lassalle Evelyn>
+Prepared by <author Oga Luciano, Bortol Juan Pablo, Lassalle Evelyn>
 
 <organization>  
 	
