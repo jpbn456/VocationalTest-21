@@ -1,6 +1,7 @@
 require './models/init.rb'
 
 
+
 class App < Sinatra::Base
   get '/' do
      erb :landing
@@ -93,15 +94,18 @@ class App < Sinatra::Base
 
   #Creation response
   post '/responses' do
-    arrayNegativas = ["2","4","6","8","10","12","14","16","18","20","22","24","28","34","40"]
+    choice_relevant_set = Choice.where(relevant: false).all
     @survey = Survey.find(id: params[:survey_id])
     params[:question_id].each do |question|
       response = Response.new(question_id: question, survey_id: @survey.id, choice_id: params[question])
       response.save 
-      arrayNegativas.delete params[question]
+      choice_param = Choice.find(id: params[question])
+      if choice_param.relevant == false
+        choice_relevant_set.delete choice_param
+      end  
     end
     @user = @survey.username
-    if arrayNegativas.empty?
+    if choice_relevant_set.empty?
       erb :end_fail_index  
     else
       pointsCareers = {}
