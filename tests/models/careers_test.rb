@@ -31,4 +31,17 @@ class CareerTest < MiniTest::Unit::TestCase
         assert_equal(career2.valid?, false)
         assert_equal(career3.valid?, false)
     end
+    def test_career_has_many_outcomes
+        #Arrange
+        career = Career.create(name: 'Sistemas')
+
+        #Act
+        Outcome.create(career_id: career.id, choice_id: 1);
+        Outcome.create(career_id: career.id, choice_id: 2);
+
+        #Assert
+        assert_equal career.outcomes.count, 2
+    end
 end
+        
+
