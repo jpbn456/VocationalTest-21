@@ -1,7 +1,5 @@
 require './models/init.rb'
 
-
-
 class App < Sinatra::Base
   get '/' do
      erb :landing
@@ -73,6 +71,12 @@ class App < Sinatra::Base
   post '/info_surveys' do
   	redirect :surveys
   end
+
+  #Cantidad de carreras 
+  post '/careers_info_surveys' do
+    erb :surveys_careers
+  end
+
 
   #Creation surveys
   post '/surveys' do
