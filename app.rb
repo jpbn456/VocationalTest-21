@@ -77,6 +77,10 @@ class App < Sinatra::Base
     erb :surveys_careers
   end
 
+  get '/surveys_careers' do
+    @careers = Career.all
+    erb :surveys_careers
+  end
 
   #Creation surveys
   post '/surveys' do
