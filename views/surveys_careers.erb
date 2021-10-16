@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel='stylesheet' href='/styles.css' type='text/css'/>
+  </head>
+
+  <body class='background2'>
+     
+     <h1>TESTVOCACIONAL-21</h1>
+        
+        <div class="imput-user">
+          <p> ¡A CONTINUACIÓN, INGRESE DATOS DE BUSQUEDA! </p>
+            <form action='/surveys_careers' method='POST'>
+       
+                <label for="name">Inicio:</label>
+                  <input type="date" id="FechaIni" name="FechaIni" placeholder="Fecha de inicio"required/>
+              
+                <label for="name">Fin:</label>
+                  <input type="date" id="FechaFin" name="FechaFin" placeholder="Fecha de Fin"required/>
+           
+                <label for="career">Carrera:</label>
+                <select id="carner_id" name="career_id" >
+                  <% @careers.each do |career|%>
+                  <option value='<%=career.id%>'> <%=career.name%> </option>
+                  <%end%>
+                  <input type='submit' value='Enviar'>
+            </form>
+        </div>
+
+    <div class="back">
+        <form action='/init' method='POST'>
+        </br>
+            <input type='submit' value='Volver atrás'>
+        </form>
+    </div>
+
+  </body>
+
+</html>
