@@ -67,14 +67,13 @@ class App < Sinatra::Base
     redirect :/
   end
 
+  post '/careers_info_surveys' do
+    erb :surveys_careers
+  end
+
   #Creation info_surveys
   post '/info_surveys' do
   	redirect :surveys
-  end
-
-  #Cantidad de carreras 
-  post '/careers_info_surveys' do
-    erb :surveys_careers
   end
 
   get '/surveys_careers' do
