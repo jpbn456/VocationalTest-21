@@ -68,7 +68,7 @@ class App < Sinatra::Base
   end
 
   #Created to redirect 
-  post '/careers_info_surveys' do
+  post '/careers_info_survey' do
     erb :surveys_careers
   end
 
