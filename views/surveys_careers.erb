@@ -20,8 +20,8 @@
                   <input type="date" id="FechaFin" name="FechaFin" placeholder="Fecha de Fin"required/>
            
                 <label for="career">Carrera:</label>
-                <select id="carner_id" name="career_id" >
-                  <% @careers.each do |career|%>
+                <select id="career_id" name="career_id" >
+                  <% Career.all.each do |career|%>
                   <option value='<%=career.id%>'> <%=career.name%> </option>
                   <%end%>
                   <input type='submit' value='Enviar'>
