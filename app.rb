@@ -5,11 +5,6 @@ class App < Sinatra::Base
      erb :landing
   end
 
-  get "/hello/:name" do
-   @name = params[:name]
-   erb :hello_template
-  end
-
    #Creation careers
   post "/careers" do
     career = Career.new(name: params[:name])
@@ -19,12 +14,6 @@ class App < Sinatra::Base
     else
        [500, {}, 'Internal Server Error']
     end
-  end
-
-  #Get to shows careers
-  get "/careers" do
-    @careers = Career.all
-	erb :careers_index
   end
 
   #Get to shows information careers
@@ -59,7 +48,7 @@ class App < Sinatra::Base
 
   #Creation info_careers
   post '/info_careers' do
-    redirect :careers
+    erb :careers_index
   end
 
   #Creation init
@@ -77,24 +66,14 @@ class App < Sinatra::Base
   	redirect :surveys
   end
 
-  get '/surveys_careers' do
-    @careers = Career.all
-    erb :surveys_careers
-  end
-
   post '/surveys_careers'do
     @fecha_ini = params[:FechaIni]
     @fecha_fin = params[:FechaFin]
     @career = Career.find(id: params[:career_id])
-    @count = 0
-
-    Survey.all.each do |survey|
-      if (survey.career_id == @career.id) && (survey.created_at.strftime("%Y-%m-%d")>= @fecha_ini) && (survey.created_at.strftime("%Y-%m-%d") <= @fecha_fin)
-        @count += 1
-      end
-    end
-    erb :quantity_careers 
+    @count = Survey.all.filter{|x| x.career_id == @career.id && x.created_at.strftime('%Y-%m-%d') >=  @fecha_ini && x.created_at.strftime('%Y-%m-%d') <= @fecha_fin}.count()
+    erb :quantity_careers
   end
+
 
   #Creation surveys
   post '/surveys' do
@@ -130,27 +109,28 @@ class App < Sinatra::Base
     if choice_relevant_set.empty?
       erb :end_fail_index  
     else
-      pointsCareers = {}
-      Career.all.each do |career| 
-        pointsCareers[career.id] = 0
-      end
-      @survey.responses.each do |response|
-        Outcome.all.each do |outcome|
-          if (response.choice_id == outcome.choice_id)
-            pointsCareers[outcome.career_id] += 1
-          end
+      careers_points = calculate_career_points(@survey)
+    end
+    careerId = careers_points.key(careers_points.values().max())
+    @career = Career.find(id: careerId).name
+    @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
+    @survey.responses.map {|c|c.destroy } #se elimina todas las respuestas que el usuario envio..
+    erb :end_index
+  end 
+    
+  def calculate_career_points(survey) 
+    pointsCareers = {}
+    Career.all.each do |career| 
+      pointsCareers[career.id] = 0
+    end
+    survey.responses.each do |response|
+      Outcome.all.each do |outcome|
+        if (response.choice_id == outcome.choice_id)
+          pointsCareers[outcome.career_id] += 1
         end
       end
-
-      careerId = pointsCareers.key(pointsCareers.values().max())
-      @career = Career.find(id: careerId).name
-      @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
-      @survey.responses.map {|c|c.destroy } #se elimina todas las respuestas que el usuario envio..
-      erb :end_index
-      
-
-    end   
-
-  end
+    end
+    return pointsCareers
+  end 
 end
 
