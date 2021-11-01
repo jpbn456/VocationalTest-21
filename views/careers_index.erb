@@ -11,7 +11,7 @@
         <div>
           <ul>
             <div class='list-careers'>
-	            <% @careers.map do |career| %>
+	            <% Career.all.map do |career| %>
 	              <li>
 	                <a href="careers/<%=career.id%>"> <%= career.name %> (<%= career.surveys.count.to_s %>)</a>
                 </li>

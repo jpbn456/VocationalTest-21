@@ -16,12 +16,6 @@ class App < Sinatra::Base
     end
   end
 
-  #Get to shows careers
-  get "/careers" do
-    @careers = Career.all
-	erb :careers_index
-  end
-
   #Get to shows information careers
   get "/careers/:id" do
     @career = Career.find(id: params[:id])
