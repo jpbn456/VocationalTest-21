@@ -109,27 +109,28 @@ class App < Sinatra::Base
     if choice_relevant_set.empty?
       erb :end_fail_index  
     else
-      pointsCareers = {}
-      Career.all.each do |career| 
-        pointsCareers[career.id] = 0
-      end
-      @survey.responses.each do |response|
-        Outcome.all.each do |outcome|
-          if (response.choice_id == outcome.choice_id)
-            pointsCareers[outcome.career_id] += 1
-          end
+      careers_points = calculate_career_points(@survey)
+    end
+    careerId = careers_points.key(careers_points.values().max())
+    @career = Career.find(id: careerId).name
+    @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
+    @survey.responses.map {|c|c.destroy } #se elimina todas las respuestas que el usuario envio..
+    erb :end_index
+  end 
+    
+  def calculate_career_points(survey) 
+    pointsCareers = {}
+    Career.all.each do |career| 
+      pointsCareers[career.id] = 0
+    end
+    survey.responses.each do |response|
+      Outcome.all.each do |outcome|
+        if (response.choice_id == outcome.choice_id)
+          pointsCareers[outcome.career_id] += 1
         end
       end
-
-      careerId = pointsCareers.key(pointsCareers.values().max())
-      @career = Career.find(id: careerId).name
-      @survey.update(career_id: careerId) #Actualizo valor de relación entre el usuario y la carrera ganadora
-      @survey.responses.map {|c|c.destroy } #se elimina todas las respuestas que el usuario envio..
-      erb :end_index
-      
-
-    end   
-
-  end
+    end
+    return pointsCareers
+  end 
 end
 
