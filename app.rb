@@ -48,7 +48,7 @@ class App < Sinatra::Base
 
   #Creation info_careers
   post '/info_careers' do
-    redirect :careers
+    erb :careers_index
   end
 
   #Creation init
@@ -64,11 +64,6 @@ class App < Sinatra::Base
   #Creation info_surveys
   post '/info_surveys' do
   	redirect :surveys
-  end
-
-  get '/surveys_careers' do
-    @careers = Career.all
-    erb :surveys_careers
   end
 
   post '/surveys_careers'do
