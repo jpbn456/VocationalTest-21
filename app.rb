@@ -5,11 +5,6 @@ class App < Sinatra::Base
      erb :landing
   end
 
-  get "/hello/:name" do
-   @name = params[:name]
-   erb :hello_template
-  end
-
    #Creation careers
   post "/careers" do
     career = Career.new(name: params[:name])
