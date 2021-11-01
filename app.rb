@@ -70,15 +70,10 @@ class App < Sinatra::Base
     @fecha_ini = params[:FechaIni]
     @fecha_fin = params[:FechaFin]
     @career = Career.find(id: params[:career_id])
-    @count = 0
-
-    Survey.all.each do |survey|
-      if (survey.career_id == @career.id) && (survey.created_at.strftime("%Y-%m-%d")>= @fecha_ini) && (survey.created_at.strftime("%Y-%m-%d") <= @fecha_fin)
-        @count += 1
-      end
-    end
-    erb :quantity_careers 
+    @count = Survey.all.filter{|x| x.career_id == @career.id && x.created_at.strftime('%Y-%m-%d') >=  @fecha_ini && x.created_at.strftime('%Y-%m-%d') <= @fecha_fin}.count()
+    erb :quantity_careers
   end
+
 
   #Creation surveys
   post '/surveys' do
