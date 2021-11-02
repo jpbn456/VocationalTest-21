@@ -1,5 +1,7 @@
-class Question < Sequel::Model
+# frozen_string_literal: true
 
-	one_to_many :choices
-    one_to_many :responses
+# Define the associations with each class
+class Question < Sequel::Model
+  one_to_many :choices
+  one_to_many :responses
 end

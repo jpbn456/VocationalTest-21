@@ -1,15 +1,17 @@
-Sequel.migration do
-    up do
-      create_table(:choices) do
-        primary_key   :id
-        String        :text
-        Boolean       :relevant
-        DateTime      :created_at,   default: Sequel::CURRENT_TIMESTAMP
-        DateTime      :updated_at,   default: Sequel::CURRENT_TIMESTAMP
-      end
-    end
+# frozen_string_literal: true
 
-    down do
-      drop_table(:choices)
+Sequel.migration do
+  up do
+    create_table(:choices) do
+      primary_key   :id
+      String        :text
+      Boolean       :relevant
+      DateTime      :created_at,   default: Sequel::CURRENT_TIMESTAMP
+      DateTime      :updated_at,   default: Sequel::CURRENT_TIMESTAMP
     end
   end
+
+  down do
+    drop_table(:choices)
+  end
+end
