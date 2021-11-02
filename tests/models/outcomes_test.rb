@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require File.expand_path '../test_helper.rb', __dir__
 
+# Unit Test suit for Outcome Model
 class OutcomeTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
   def test_outcome_must_has_career_and_choice

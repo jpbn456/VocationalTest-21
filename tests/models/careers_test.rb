@@ -2,6 +2,7 @@
 
 require File.expand_path '../test_helper.rb', __dir__
 
+# Unit Test suit for Career Model
 class CareerTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
 

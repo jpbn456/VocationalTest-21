@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require File.expand_path '../test_helper.rb', __dir__
 
+# Unit Test suit for Questions Model
 class QuestionTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
 
@@ -20,14 +23,13 @@ class QuestionTest < MiniTest::Unit::TestCase
     question = Question.create(name: 'Pregunta1', description: 'Desc de pregunta', number: '1')
 
     # Act
-    choice1 = Choice.create(text: 'Si', question_id: question.id, relevant: true)
-    choice2 = Choice.create(text: 'No', question_id: question.id, relevant: false)
+    choice = Choice.create(text: 'Si', question_id: question.id, relevant: true)
 
     survey1 = Survey.create(username: 'Jorge')
     survey2 = Survey.create(username: 'Victoria')
 
-    Response.create(question_id: question.id, choice_id: choice1.id, survey_id: survey1.id)
-    Response.create(question_id: question.id, choice_id: choice1.id, survey_id: survey2.id)
+    Response.create(question_id: question.id, choice_id: choice.id, survey_id: survey1.id)
+    Response.create(question_id: question.id, choice_id: choice.id, survey_id: survey2.id)
 
     choice = Choice.find(text: 'Si')
 

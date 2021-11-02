@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 require File.expand_path '../test_helper.rb', __dir__
 
+# Unit Test suit for Surveys Model
 class SurveyTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
   def test_survey_must_has_username
@@ -24,8 +27,8 @@ class SurveyTest < MiniTest::Unit::TestCase
     career = Career.create(name: 'Carrera6')
 
     # Act
-    survey1 = Survey.create(username: 'Usuario1', career_id: career.id)
-    survey2 = Survey.create(username: 'Usuario2', career_id: career.id)
+    Survey.create(username: 'Usuario1', career_id: career.id)
+    Survey.create(username: 'Usuario2', career_id: career.id)
 
     # Assert
     assert_equal career.surveys.count, 2

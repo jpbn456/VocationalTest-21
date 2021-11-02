@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ENV['RACK_ENV'] = 'test'
 require 'minitest/autorun'
 require 'minitest/color'
@@ -11,9 +13,12 @@ DB = Sequel.connect(
   user: 'unicorn',
   password: 'magic'
 )
-class Minitest::HooksSpec
-  def around
-    DB.transaction(rollback: :always, auto_savepoint: true) { super }
+module Minitest
+  # DB set up class for testing
+  class HooksSpec
+    def around
+      DB.transaction(rollback: :always, auto_savepoint: true) { super }
+    end
   end
 end
 require File.expand_path './app.rb'
