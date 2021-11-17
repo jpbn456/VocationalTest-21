@@ -4,23 +4,10 @@ require './models/init'
 
 # Class that defines methods to interact with the server
 class App < Sinatra::Base
+  use CareerController
+
   get '/' do
     erb :landing
-  end
-
-  post '/careers' do
-    career = Career.new(name: params[:name])
-    if career.save
-      [201, { 'Location' => "career/#{career.id}" }, 'CREATED']
-    else
-      [500, {}, 'Internal Server Error']
-    end
-  end
-
-  get '/careers/:id' do
-    @career = Career.find(id: params[:id])
-    @career_id = @career.id
-    erb :info_careers
   end
 
   post '/posts' do
@@ -43,9 +30,6 @@ class App < Sinatra::Base
     erb :surveys_index
   end
 
-  post '/info_careers' do
-    erb :careers_index
-  end
 
   post '/init' do
     redirect :/
