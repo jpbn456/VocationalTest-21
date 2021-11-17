@@ -1,3 +1,5 @@
+require 'sinatra/base'
+
 class CareerService
 
     self.create_career(nameCareer)

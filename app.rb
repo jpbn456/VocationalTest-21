@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 
 require './models/init'
+require './controllers/CareerController.rb'
 
 # Class that defines methods to interact with the server
 class App < Sinatra::Base
+  
   use CareerController
 
   get '/' do
