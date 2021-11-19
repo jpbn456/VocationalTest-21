@@ -3,12 +3,14 @@
 require './models/init'
 require './controllers/CareerController.rb'
 require './controllers/PostController.rb'
+require './controllers/ResponseController.rb'
 
 # Class that defines methods to interact with the server
 class App < Sinatra::Base
   
   use CareerController
   use PostController
+  use ResponseController
 
   get '/' do
     erb :landing
@@ -57,38 +59,3 @@ class App < Sinatra::Base
     erb :info_surveys
   end
 
-  post '/responses' do
-    choice_relevant_set = Choice.where(relevant: false).all
-    @survey = Survey.find(id: params[:survey_id])
-    params[:question_id].each do |question|
-      response = Response.new(question_id: question, survey_id: @survey.id, choice_id: params[question])
-      response.save
-      choice_param = Choice.find(id: params[question])
-      choice_relevant_set.delete choice_param if choice_param.relevant == false
-    end
-    @user = @survey.username
-    if choice_relevant_set.empty?
-      erb :end_fail_index
-    else
-      careers_points = calculate_career_points(@survey)
-    end
-    career_id = careers_points.key(careers_points.values.max)
-    @career = Career.find(id: career_id).name
-    @survey.update(career_id: career_id) # Actualizo valor de relación entre el usuario y la carrera ganadora
-    @survey.responses.map(&:destroy) # se elimina todas las respuestas que el usuario envio..
-    erb :end_index
-  end
-
-  def calculate_career_points(survey)
-    points_careers = {}
-    Career.all.each do |career|
-      points_careers[career.id] = 0
-    end
-    survey.responses.each do |response|
-      Outcome.all.each do |outcome|
-        points_careers[outcome.career_id] += 1 if response.choice_id == outcome.choice_id
-      end
-    end
-    points_careers
-  end
-end
