@@ -7,13 +7,11 @@ class CareerController < Sinatra::Base
      end
 
     post "/careers" do
-        Se obtiene dato
         name_career = params[:name]
-        Se invoca modelo para implementar logica y captura excepcion    
         begin
         CareerService.create_career(name_career)
         rescue ValidationModelError => e
-            return erb :errorView, :locals => e.errors
+            return erb :error_view, :locals => e.errors
         end
     end
 

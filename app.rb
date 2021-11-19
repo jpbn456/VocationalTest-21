@@ -2,36 +2,21 @@
 
 require './models/init'
 require './controllers/CareerController.rb'
+require './controllers/PostController.rb'
 
 # Class that defines methods to interact with the server
 class App < Sinatra::Base
   
   use CareerController
+  use PostController
 
   get '/' do
     erb :landing
   end
 
-  post '/posts' do
-    request.body.rewind # in case someone already read it
-    data = JSON.parse request.body.read
-    post = Post.new(description: data['desc'])
-    if post.save
-      [201, { 'Location' => "posts/#{post.id}" }, 'CREATED']
-    else
-      [500, {}, 'Internal Server Error']
-    end
-  end
-
-  get '/posts' do
-    p = Post.where(id: 1).last
-    p.description
-  end
-
   post '/inicio' do
     erb :surveys_index
   end
-
 
   post '/init' do
     redirect :/
