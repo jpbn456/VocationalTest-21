@@ -58,4 +58,5 @@ class App < Sinatra::Base
     @surveys = Survey.all
     erb :info_surveys
   end
+end
 
