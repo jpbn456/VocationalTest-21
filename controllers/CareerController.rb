@@ -1,6 +1,7 @@
 require 'sinatra/base'
-
+require './excepcion/ValidationModelError.rb'
 require './services/CareerService.rb'
+require './models/career.rb'
 
 class CareerController < Sinatra::Base
     

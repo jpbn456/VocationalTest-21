@@ -1,6 +1,10 @@
 require 'sinatra/base'
-
+require './excepcion/ValidationModelError.rb'
 require './services/ResponseService.rb'
+require './models/choice.rb'
+require './models/survey.rb'
+require './models/career.rb'
+require './models/outcome.rb'
 
 class ResponseController < Sinatra::Base
 

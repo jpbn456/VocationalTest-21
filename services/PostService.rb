@@ -1,3 +1,5 @@
+require './models/post.rb'
+
 class PostService
     def self.create_post(data)
         post = Post.new(description: data['desc']) 
