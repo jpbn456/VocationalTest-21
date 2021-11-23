@@ -1,17 +1,22 @@
 require 'sinatra/base'
 
+require './services/CareerService.rb'
+
 class CareerController < Sinatra::Base
     
     configure :development, :production do
         set :views, settings.root + '/../views'
      end
 
+    get '/register' do
+        erb :error_view
+    end
     post "/careers" do
         name_career = params[:name]
         begin
         CareerService.create_career(name_career)
         rescue ValidationModelError => e
-            return erb :error_view, :locals => e.errors
+            return erb :error_view, :locals => {:errorMessage => e.message}
         end
     end
 
