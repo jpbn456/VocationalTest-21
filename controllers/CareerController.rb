@@ -12,6 +12,7 @@ class CareerController < Sinatra::Base
     get '/register' do
         erb :error_view
     end
+    
     post "/careers" do
         name_career = params[:name]
         begin

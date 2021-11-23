@@ -1,10 +1,14 @@
 require 'sinatra/base'
 require './services/SurveyService.rb'
-require './models/survey.rb'
-require './models/career.rb'
+#require './models/survey.rb'
+#require './models/career.rb'
 
 
 class SurveyCareerController < Sinatra::Base
+
+    configure :development, :production do
+        set :views, settings.root + '/../views'
+    end
 
     post '/surveys_careers'do
         @fecha_ini = params[:FechaIni]

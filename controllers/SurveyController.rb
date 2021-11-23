@@ -1,17 +1,25 @@
 require 'sinatra/base'
 require './services/SurveyService.rb'
 require './excepcion/ValidationModelError.rb'
-require './models/question.rb'
-require './models/survey.rb'
+#require './models/question.rb'
+#require './models/survey.rb'
 
 class SurveyController < Sinatra::Base
+
+    configure :development, :production do
+        set :views, settings.root + '/../views'
+    end
+
+    get '/register' do
+        erb :error_view
+    end
 
     post '/surveys' do
         user_name = params[:username]
         begin
-        SurveyService.create_survey(user_name)
+        @survey = SurveyService.create_survey(user_name)
         rescue ValidationModelError => e
-          return erb :errorView, :locals => e.errors
+           return erb :error_view, :locals => {:errorMessage => e.message}
         end
         @questions = Question.all
         erb :questions_index
